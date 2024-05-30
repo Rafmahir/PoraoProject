@@ -1,0 +1,111 @@
+<PORAO html>
+<html>
+<head>
+	<title>Login Page</title>
+    <style type="text/css">
+        body{
+            background-image: url('background.jpg');
+        }
+    </style>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    
+
+    <script>
+        // Google sign-in
+function onSignIn(googleUser) {
+  // Get ID token
+  var id_token = googleUser.getAuthResponse().id_token;
+  // Send ID token to your server
+  // ...
+}
+
+google.accounts.id.initialize({
+  client_id: "YOUR_GOOGLE_CLIENT_ID",
+  callback: onSignIn
+});
+google.accounts.id.renderButton(
+  document.getElementById("g_id_onload"),
+  { theme: "outline", size: "large" }
+);
+
+// Apple sign-in
+function appleSignInCallback(appleUser, error) {
+  if (error) {
+    // Handle error
+  } else {
+    // Get authorization code
+    var code = appleUser.authorization.code;
+    // Send authorization code to your server
+    // ...
+  }
+}
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/apple-sign-in-service-worker.js").then(function(registration) {
+      // Register service worker
+    }, function(error) {
+      // Handle error
+    });
+  });
+}
+
+var appleIdButton = document.getElementById("apple-sign-in");
+appleIdButton.addEventListener("click", function() {
+  appleIdButton.classList.add("apple-sign-in-loading");
+  appleIdButton.setAttribute("disabled", "disabled");
+  appleId.auth.signIn({
+    clientId: "YOUR_APPLE_CLIENT_ID",
+    redirectUri: "your_redirect_uri",
+    scope: "email name",
+    responseType: "code",
+    state: "STATE",
+    nonce: "NONCE",
+    standalone: true
+  }, appleSignInCallback);
+});
+    </script>
+
+    <script>document.getElementById("student-link").addEventListener("click", redirect);
+
+        function redirect(){
+          window.location = "student-login.html";
+        }</script>
+</head>
+<body>
+    
+    <h1 id="poraotext" style="font-size: 8rem; text-align: center; color: #2a7960;">PORAO!</h1>
+	<div class="container">
+		<h2 id="signin" style="font-size: 2rem; text-align: center; color: #000000;">Sign in</h2>
+        <h3 id="signinas" style="font-size: 1rem; text-align: center; color: #000000;">to your Porao account as:</h3>
+        <h3 id="blank" style="font-size: 1rem; text-align: center; color: #ffffff;">.</h3>
+
+        <a href="#" onclick="window.location='tutor-login.html'" class="choice">Tutor</a>
+        <a href="#" onclick="window.location='student-login.html'" class="choice">Student</a>
+		<form id="login-form">
+			<input type="text" id="username" placeholder="Username" required>
+			<input type="password" id="password" placeholder="Password" required>
+			<input type="submit" value="Login">
+		</form>
+
+        
+	</div>
+
+    <div id="g_id_onload"
+  data-client_id="YOUR_GOOGLE_CLIENT_ID"
+  data-login_uri="your_login_endpoint"
+  data-auto_prompt="false">
+</div>
+<div id="apple_id_onload"
+  data-client_id="YOUR_APPLE_CLIENT_ID"
+  data-redirect_uri="your_redirect_uri"
+  data-scope="email name"
+  data-response_type="code"
+  data-state="STATE"
+  data-nonce="NONCE">
+</div>
+<h2 id="or" style="font-size: 1rem; text-align: center; color: #000000;">---------------- Or ----------------</h2>
+<a href="#" onclick="window.location='/google-sign-in-service-worker.js'"  id="google-sign-in">Sign in with Google </a>
+<a href="#" onclick="window.location='/apple-sign-in-service-worker.js'" id="apple-sign-in">Sign in with Apple</a>
+</body>
+</html>
