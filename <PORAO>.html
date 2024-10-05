@@ -74,7 +74,7 @@ appleIdButton.addEventListener("click", function() {
 </head>
 <body>
     
-    <h1 id="poraotext" style="font-size: 8rem; text-align: center; color: #2a7960;">PORAO!</h1>
+    <h1 id="poraotext" style="font-size: 8rem; text-align: center; color: #2a7960;">PORAO</h1>
 	<div class="container">
 		<h2 id="signin" style="font-size: 2rem; text-align: center; color: #000000;">Sign in</h2>
         <h3 id="signinas" style="font-size: 1rem; text-align: center; color: #000000;">to your Porao account as:</h3>
@@ -88,7 +88,13 @@ appleIdButton.addEventListener("click", function() {
 			<input type="submit" value="Login">
 		</form>
 
-        
+    
+    
+
+
+
+
+
 	</div>
 
     <div id="g_id_onload"
@@ -109,3 +115,53 @@ appleIdButton.addEventListener("click", function() {
 <a href="#" onclick="window.location='/apple-sign-in-service-worker.js'" id="apple-sign-in">Sign in with Apple</a>
 </body>
 </html>
+
+<html></html>
+
+<head>
+    <style type="text/css">
+
+        /* Set the size of the div element 
+        that contains the map */
+        #map {
+            height: 400px;
+            width: 400px;
+        }
+        
+        h2 {
+            color: #308d46;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+      <h1 id="findtutor" style="font-size: 3rem; text-align: center; color: #2a7960;">Find a tutor below!</h1>
+    </h2>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!--Add a script by google -->
+
+    <script>
+
+        // Initialize and add the map
+        function initMap() {
+
+            // The location of Geeksforgeeks office
+            var location = {lat: 28.50231, lng: 77.40548};
+            var map = new google.maps.Map(document.getElementById("map"), {zoom: 4,
+              center: location
+            });
+            
+            };
+
+          
+        
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABH0RbC_xkMIxXsS-NZH9N4xlaYEUSryo&callback=initMap"></script>
+</body>
+
+</html>
+
