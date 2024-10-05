@@ -133,7 +133,7 @@ body {
     text-align: center;
     line-height: 50px;
     text-decoration: none;
-	margin-bottom: 70px;
+    margin-bottom: 70px;
   }
   
   #google-sign-in:hover, #apple-sign-in:hover {
@@ -146,4 +146,17 @@ body {
   
   #apple-sign-in.apple-sign-in-loading {
     background-color: #999;
+  }
+
+
+  #map {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
   }
